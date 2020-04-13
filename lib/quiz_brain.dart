@@ -64,9 +64,15 @@ class QuizBrain {
     ),
   ];
 
-  Question getNextQuestion() {
+  void nextQuestion() {
     if (_questionIndex < _questions.length - 1) _questionIndex++;
+  }
 
-    return this._questions[this._questionIndex];
+  String getQuestionText() {
+    return _questions[_questionIndex].text;
+  }
+
+  bool getQuestionAnswer() {
+    return _questions[_questionIndex].answer;
   }
 }
