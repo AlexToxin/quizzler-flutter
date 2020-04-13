@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:quizzler/quiz_brain.dart';
+//TODO: Step 2 - Import the rFlutter_Alert package here.
+
+QuizBrain quizBrain = QuizBrain();
 
 void main() => runApp(Quizzler());
 
@@ -27,10 +30,17 @@ class QuizPage extends StatefulWidget {
 
 class _QuizPageState extends State<QuizPage> {
   List<Icon> scoreKeeper = [];
-  QuizBrain quizBrain = QuizBrain();
 
   void checkAnswer(bool selectedAnswer) {
     setState(() {
+      //TODO: Step 4 - Use IF/ELSE to check if we've reached the end of the quiz. If true, execute Part A, B, C, D.
+      //TODO: Step 4 Part A - show an alert using rFlutter_alert (remember to read the docs for the package!)
+      //HINT! Step 4 Part B is in the quiz_brain.dart
+      //TODO: Step 4 Part C - reset the questionNumber,
+      //TODO: Step 4 Part D - empty out the scoreKeeper.
+
+      //TODO: Step 5 - If we've not reached the end, ELSE do the answer checking steps below 👇
+
       if (quizBrain.getQuestionAnswer() == selectedAnswer) {
         scoreKeeper.add(
           Icon(
@@ -86,6 +96,7 @@ class _QuizPageState extends State<QuizPage> {
                 ),
               ),
               onPressed: () {
+                //The user picked true.
                 checkAnswer(true);
               },
             ),
@@ -104,6 +115,7 @@ class _QuizPageState extends State<QuizPage> {
                 ),
               ),
               onPressed: () {
+                //The user picked false.
                 checkAnswer(false);
               },
             ),
@@ -111,8 +123,14 @@ class _QuizPageState extends State<QuizPage> {
         ),
         Row(
           children: scoreKeeper,
-        ),
+        )
       ],
     );
   }
 }
+
+/*
+question1: 'You can lead a cow down stairs but not up stairs.', false,
+question2: 'Approximately one quarter of human bones are in the feet.', true,
+question3: 'A slug\'s blood is green.', true,
+*/
